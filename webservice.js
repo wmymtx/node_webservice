@@ -1,5 +1,6 @@
 var http = require('http');
 var request = require('request');
+var parseString = require('xml2js').parseString;
 
 var req_opt = {
     method: "POST",
@@ -46,18 +47,23 @@ function invokeWebService() {
     return "调用webservice";
 }
 
-function requsetWebService() {
-    
+function requsetWebService(data, fn) {
+
     request.post('http://www.gpsso.com/webservice/kuaidi/kuaidi.asmx/KuaidiQuery', function (error, response, body) {
         if (!error && response.statusCode == 200) {
             // var info = JSON.parse(body);
             // console.log(info.stargazers_count + " Stars");
             //console.log(info.forks_count + " Forks");
             console.log(body);
+            parseString(body, function (err, result) {
+                console.dir(JSON.stringify(result));
+                fn && fn(result);
+            });
+
         }
-    }).form(postData);
+    }).form(data);
     return "test";
 }
 
 module.exports.webservice = invokeWebService;
-module.exports.requsetWebservice=requsetWebService;
+module.exports.requsetWebservice = requsetWebService;

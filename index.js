@@ -6,7 +6,13 @@ app.get('/', function (req, res) {
    res.send('Hello World');
 });
 app.get('/webservice',function(req,res){
-    res.send(webservice.requsetWebservice());
+    console.log(req.query.c);
+    console.log(req.query.n);
+    var postData={ Compay: req.query.c, OrderNo: req.query.n };
+   // res.send(webservice.requsetWebservice());
+   webservice.requsetWebservice(postData,function(data){
+       res.json(data);
+   });
 });
  
 var server = app.listen(8081, function () {
