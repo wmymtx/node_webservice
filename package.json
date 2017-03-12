@@ -1,0 +1,28 @@
+{
+  "name": "node_webservice",
+  "version": "1.0.0",
+  "description": "node invoke webservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmymtx/node_webservice.git"
+  },
+  "keywords": [
+    "wmymtx"
+  ],
+  "author": "wmymtx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmymtx/node_webservice/issues"
+  },
+  "homepage": "https://github.com/wmymtx/node_webservice#readme",
+  "devDependencies": {
+    "soap": "^0.18.0"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
